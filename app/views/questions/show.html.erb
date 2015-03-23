@@ -2,4 +2,6 @@
 
 <p><%= @question.body %></p>
 
+<p><%= link_to "Submit a response", new_question_response_path(@question) %></p>
+
 <p><%= link_to "Back", questions_path %></p>
