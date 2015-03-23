@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :questions, :except => [:edit, :update, :destroy] do
     resources :responses, :only => [:new, :create]
   end
+  resources :users, :except => [:index]
 end

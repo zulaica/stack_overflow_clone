@@ -3,7 +3,6 @@ class ResponsesController < ApplicationController
   def new
     @question = Question.find(params[:question_id])
     @response = Response.new
-    render :new
   end
 
   def create

@@ -17,9 +17,13 @@
   </section>
 
 
-<div class="container">
-  <%= yield %>
-</div>
+  <header>
+    <%= link_to "Home", root_path %> | <%= link_to "Sign up", new_user_path %>
+  </header>
+
+  <div class="container">
+    <%= yield %>
+  </div>
 
 </body>
 </html>
