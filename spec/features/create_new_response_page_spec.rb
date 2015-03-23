@@ -3,7 +3,6 @@ require 'rails_helper'
 describe 'the create new response process' do
   it 'creates a new response' do
     question = FactoryGirl.create(:question)
-    binding.pry
     visit question_path(question)
     click_on 'Submit a response'
     fill_in 'Body', :with => 'Just keep on that stuff'
