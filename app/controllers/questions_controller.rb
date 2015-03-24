@@ -14,6 +14,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     @question.published = Time.now
+    @question.user_id = current_user.id
     if @question.save
       flash[:notice] = "Your question was posted."
       redirect_to questions_path
