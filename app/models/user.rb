@@ -3,8 +3,8 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password
   before_save :encrypt_password
 
-  validates :username, :presence => true
-  validates :email, :presence => true
+  validates :username, :presence => true, :uniqueness => true
+  validates :email, :presence => true, :uniqueness => true
 
   has_many :questions
   has_many :responses

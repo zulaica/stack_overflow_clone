@@ -5,11 +5,17 @@ class SessionsController < ApplicationController
     if @user
       flash[:notice] = "You've been logged in."
       session[:user_id] = @user.id
-      redirect_to "/"
+      redirect_to root_path
     else
-      flash[:alert] = "There was a problem logging in."
+      flash[:alert] = "There was a problem logging you in."
       redirect_to log_in_path
     end
+  end
+
+  def destroy
+    session[:user_id] = nil
+    flash[:notice] = "You have been logged out successfully"
+    redirect_to root_path
   end
 
 end
