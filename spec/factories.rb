@@ -7,9 +7,15 @@ FactoryGirl.define do
   end
 
   factory :user do
-    username "user"
-    email "user@domain.tld"
+    sequence(:username) { |n| "user#{n}" }
+    sequence(:email) { |n| "user#{n}@domain.tld" }
     password "password1234"
     password_confirmation "password1234"
+  end
+
+  factory :response do
+    question
+    body "Keep on keepin' on."
+    published Time.now
   end
 end

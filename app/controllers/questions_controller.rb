@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+
   def index
     @questions = Question.all
   end
@@ -12,9 +13,8 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.new(question_params)
+    @question = current_user.questions.new(question_params)
     @question.published = Time.now
-    @question.user_id = current_user.id
     if @question.save
       flash[:notice] = "Your question was posted."
       redirect_to questions_path
@@ -25,8 +25,8 @@ class QuestionsController < ApplicationController
 
 private
 
-    def question_params
-      params.require(:question).permit(:title, :body)
-    end
+  def question_params
+    params.require(:question).permit(:title, :body)
+  end
 
 end
