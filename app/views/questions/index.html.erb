@@ -6,4 +6,8 @@
   <% end %>
 </ul>
 
+<% if current_user %>
 <p><%= link_to "Ask a question", new_question_path %></p>
+<% else %>
+<p>You must be logged in to ask a question or submit a response.</p>
+<% end %>

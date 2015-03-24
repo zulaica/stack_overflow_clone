@@ -9,6 +9,10 @@
 <hr>
 <% end %>
 
+<% if current_user %>
 <p><%= link_to "Submit a response", new_question_response_path(@question) %></p>
+<% else %>
+<p>You must be logged in to ask a question or submit a response.</p>
+<% end %>
 
 <p><%= link_to "Back", questions_path %></p>
