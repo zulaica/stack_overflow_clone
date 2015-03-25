@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       # this is where the Railscast says to add the mailer to the users_controller.
-      UserMailer.signup_confirmation(@user).deliver
+      UserMailer.signup_confirmation(@user).deliver_now
       flash[:notice] = "Your account has been successfully created, " + @user.username
       redirect_to user_path(@user)
     else

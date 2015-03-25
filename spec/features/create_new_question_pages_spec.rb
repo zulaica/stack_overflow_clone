@@ -7,7 +7,6 @@ describe "the create new question process" do
     fill_in "Email", :with => user.email
     fill_in "Password", :with => user.password
     click_on "Submit"
-    visit questions_path
     click_on "Ask a question"
     fill_in "Title", :with => "Question Title"
     fill_in "Body", :with => "This is the question body."

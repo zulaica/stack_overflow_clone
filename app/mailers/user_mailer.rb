@@ -3,10 +3,11 @@ class UserMailer < ActionMailer::Base
 
   def signup_confirmation(user)
     @greeting = 'Hi'
-# this @user is added in so that the view will have access to it as well.
     @user = user
 
-    mail to: user.email, subject: 'signup up confirmation'
+
+
+    mail to: user.email, subject: "Signup confirmation"
   end
 end
 
