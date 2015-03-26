@@ -1,6 +1,9 @@
 <h1><%= @question.title %></h1>
 
 <p><%= @question.body %></p>
+<% if !@question.image_file_name %>
+  <%= image_tag @question.image.url(:medium) %>
+<% end %>
 
 <h2>Responses</h2>
 
