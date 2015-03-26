@@ -1,56 +1,56 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>QStack</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>QStack</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-  <section class="container">
-    <% flash.each do |name, msg| %>
-      <% if msg.is_a?(String) %>
-        <div data-alert class="alert alert-<%= name.to_s == 'notice' ? 'success' : 'danger' %>" role="alert"><%= msg %></div>
+    <section class="container">
+      <% flash.each do |name, msg| %>
+        <% if msg.is_a?(String) %>
+          <div data-alert class="alert alert-<%= name.to_s == 'notice' ? 'success' : 'danger' %>" role="alert"><%= msg %></div>
+        <% end %>
       <% end %>
-    <% end %>
-  </section>
+    </section>
 
+    <header class="container">
+      <h1>qStack</h1>
+    </header>
 
-  <header class="container">
-    <h1>qStack</h1>
-  </header>
-
-  <nav class="navbar navbar-default container">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <%= link_to "Home", root_path, :class=> "navbar-brand" %>
-      </div>
-
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <% if current_user %>
-            <li><%= link_to "Account", user_path(current_user) %></li>
-            <li><%= link_to "Log Out", log_out_path %></li>
-          <% else %>
-            <li><%= link_to "Sign up", new_user_path %></li>
-            <li><%= link_to "Log In", log_in_path %></li>
+    <nav class="navbar navbar-default container">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to root_path, :class=> "navbar-brand" do %>
+            <span class="glyphicon glyphicon-question-sign"></span>
           <% end %>
-        </ul>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <% if current_user %>
+              <li><%= link_to "Account", user_path(current_user) %></li>
+              <li><%= link_to "Log Out", log_out_path %></li>
+            <% else %>
+              <li><%= link_to "Sign up", new_user_path %></li>
+              <li><%= link_to "Log In", log_in_path %></li>
+            <% end %>
+          </ul>
+        </div>
       </div>
+    </nav>
 
-    </div>
-  </nav>
+    <main class="container">
+      <%= yield %>
+    </main>
 
-  <div class="container">
-    <%= yield %>
-  </div>
-
-</body>
+  </body>
 </html>
