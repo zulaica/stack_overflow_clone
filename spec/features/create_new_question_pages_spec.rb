@@ -1,8 +1,10 @@
 require "rails_helper"
 
 describe "the create new question process" do
+  let (:user) { FactoryGirl.create(:user) }
+  let (:mail) { UserMailer.signup_confirmation(user)}
+
   it "creates a new question" do
-    user = FactoryGirl.create(:user)
     visit log_in_path
     fill_in "Email", :with => user.email
     fill_in "Password", :with => user.password
@@ -15,7 +17,6 @@ describe "the create new question process" do
   end
 
   it "throws an error when the form isn't filled out" do
-    user = FactoryGirl.create(:user)
     visit log_in_path
     fill_in "Email", :with => user.email
     fill_in "Password", :with => user.password

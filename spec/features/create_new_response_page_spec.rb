@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 describe 'the create new response process' do
+  let(:user) { FactoryGirl.create(:user) }
+  let(:question) { FactoryGirl.create(:question) }
+
   it 'creates a new response' do
-    user = FactoryGirl.create(:user)
-    question = FactoryGirl.create(:question)
     visit log_in_path
     fill_in "Email", :with => user.email
     fill_in "Password", :with => user.password
@@ -16,8 +17,6 @@ describe 'the create new response process' do
   end
 
   it "throws an error when the response isn't filled out" do
-    user = FactoryGirl.create(:user)
-    question = FactoryGirl.create(:question)
     visit log_in_path
     fill_in "Email", :with => user.email
     fill_in "Password", :with => user.password

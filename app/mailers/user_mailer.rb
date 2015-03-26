@@ -5,14 +5,6 @@ class UserMailer < ActionMailer::Base
     @greeting = 'Hi'
     @user = user
 
-
-
     mail to: user.email, subject: "Signup confirmation"
   end
 end
-
-
-
-
-# my comments = the signup_confirmation can work without an argument as long as
-# the mail to: is set to an actual email address.
