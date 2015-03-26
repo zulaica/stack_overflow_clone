@@ -9,6 +9,7 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'bcrypt-ruby', require: 'bcrypt'
+gem 'textacular'
 
 group :development do
   gem 'byebug'

@@ -4,9 +4,24 @@
 
 <p><%= link_to "Ask a question",  new_question_path %></p>
 
-
-<p>these are your questions:</p>
-
-
-
-<p>these are your responses:</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Your questions</h3>
+  </div>
+  <div class="panel-body">
+    <dl>
+      <% @user.questions.each do |q|  %>
+        <dt><%= link_to q.title, question_path(q) %></dt>
+        <dd><time datetime="<%= q.published.strftime('%Y-%m-%dT%H:%M%z') %>"><%= q.published.strftime("Published on %B %d, %Y at %I:%M%P \(%Z\)") %></time></dd>
+      <% end %>
+    </dl>
+  </div>
+</div>
+<!-- Low-Priority Feature
+<p>Your responses:</p>
+  <ul>
+    <%# @user.responses.each do |r|  %>
+      <li><%# link_to "response", question_path(r.question_id) %></li>
+    <%# end %>
+  </ul>
+-->

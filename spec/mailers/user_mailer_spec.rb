@@ -15,5 +15,4 @@ describe UserMailer do
       expect(mail.body.encoded).to have_content "Thanks for signing up!"
     end
   end
-
 end
