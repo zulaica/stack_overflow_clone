@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'textacular'
+gem 'paperclip'
 
 group :development do
   gem 'byebug'

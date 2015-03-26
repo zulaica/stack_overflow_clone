@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       # This will show the signup confirmation email in development:
       # UserMailer.signup_confirmation(@user).deliver_now
       flash[:notice] = "Your account has been successfully created, " + @user.username
-      redirect_to user_path(@user)
+      redirect_to log_in_path
     else
       render :new
     end
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
 private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation)
+    params.require(:user).permit(:username, :email, :password, :password_confirmation, :avatar)
   end
 
 end
